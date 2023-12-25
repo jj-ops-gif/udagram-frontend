@@ -3,9 +3,9 @@ kind: ConfigMap
 metadata:
   name: env-configmap
 data:
-  POSTGRES_HOST: mydbinstance.cxktdfjj88qn.us-east-1.rds.amazonaws.com
+  POSTGRES_HOST: mydbinstance.c7plgowzgrq1.us-east-1.rds.amazonaws.com
   POSTGRES_DB: postgres
-  AWS_BUCKET: arn:aws:s3:::test-133750217366-dev
+  AWS_BUCKET: arn:aws:s3:::test-691171759074-dev
   AWS_REGION: us-east-1
   AWS_PROFILE: default
   JWT_SECRET: testing
