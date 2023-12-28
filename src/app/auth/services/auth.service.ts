@@ -29,6 +29,8 @@ export class AuthService {
     localStorage.setItem(USER_LOCALSTORE_KEY, JSON.stringify(user));
     this.api.setAuthToken(token);
     this.currentUser$.next(user);
+    console.log('JWT_LOCALSTORE_KEY: jwt=', localStorage.getItem(JWT_LOCALSTORE_KEY));
+    console.log('USER_LOCALSTORE_KEY: user=', localStorage.getItem(USER_LOCALSTORE_KEY));
   }
 
   async login(email: string, password: string): Promise<any> {

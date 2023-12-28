@@ -28,8 +28,12 @@ export class ApiService {
   }
 
   setAuthToken(token) {
-    this.httpOptions.headers = this.httpOptions.headers.append('Authorization', `jwt ${token}`);
+    console.log('Check token before: ', token);
+    console.log('Check this.httpOptions.headers before: ', this.httpOptions.headers);
+    this.httpOptions.headers = this.httpOptions.headers.set('Authorization', `jwt ${token}`);
     this.token = token;
+    console.log('Check token after: ', token);
+    console.log('Check this.httpOptions.headers after: ', this.httpOptions.headers);
   }
 
   get(endpoint): Promise<any> {
@@ -55,6 +59,8 @@ export class ApiService {
   }
 
   async upload(endpoint: string, file: File, payload: any): Promise<any> {
+    console.log('endpoint: ', endpoint);
+    console.log('Upload check this.httpOptions.headers: ', this.httpOptions.headers);
     const signed_url = (await this.get(`${endpoint}/signed-url/${file.name}`)).url;
 
     const headers = new HttpHeaders({'Content-Type': file.type});
